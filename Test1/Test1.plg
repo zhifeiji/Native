@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Test1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/Test1.res" /d "_DEBUG" /d "_AFXDLL" "E:\PROJECT\Native\Test1\Test1.rc"" 
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2031.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Test1.pdb" /debug /machine:I386 /out:"Debug/Test1.exe" /pdbtype:sept 
+.\Debug\MainFrm.obj
+.\Debug\StdAfx.obj
+.\Debug\Test1.obj
+.\Debug\Test1Doc.obj
+.\Debug\Test1View.obj
+.\Debug\Test1.res
+.\Debug\DatabaseInfo.obj
+.\Debug\FormView11.obj
+]
+Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2031.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+Test1.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
