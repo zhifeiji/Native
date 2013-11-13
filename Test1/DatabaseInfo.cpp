@@ -46,93 +46,94 @@ CDatabaseInfo *CDatabaseInfo::GetInstance()
 
 int CDatabaseInfo::GetDatabases(vector<CString> &vecDB)
 {
-	vecDB.clear();
-
-	CString strSql = "show databases";
-	int ret;
-	ret = ExecuteSql(strSql);
-	if (ret == ERROR_NO_ERROR)
-	{
-		long long lolRowNum = scsdb_NumRow(m_scsdbhd);
-		long long lColNum = scsdb_columnNum(m_scsdbhd);
-		long long lAffectNum = scsdb_affected_rows(m_scsdbhd);
-		//打印属性列表
-		// 		for (int colidx = 0; colidx < lColNum; colidx++)
-		// 		{
-		// 			printf("  %s\t",scsdb_getcolumn(m_scsdbhd,colidx));
-		// 		}
-		// 		printf("\n");
-		// 
-		//打印查询结果
-		for (long long rowidx = 0; rowidx < lolRowNum; rowidx++)
-		{
-			scsdb_ReadRow(m_scsdbhd);
-			// 			printf("[%d] ",rowidx + 1);
-// 			for(int colidx = 0; colidx < lColNum; colidx++)
-// 			{
-// 				printf("%s ",scsdb_Files(m_scsdbhd,colidx));
-// 			}
-			vecDB.push_back(scsdb_Files(m_scsdbhd,0));
-
-
-// 			printf("\n");
-		}
-
-// 		printf("affect rows = %ld\n",lAffectNum);
-		scsdb_release(m_scsdbhd);
-	}
-	return ret;
+// 	vecDB.clear();
+// 
+// 	CString strSql = "show databases";
+// 	int ret;
+// 	ret = ExecuteSql(strSql);
+// 	if (ret == ERROR_NO_ERROR)
+// 	{
+// 		long long lolRowNum = scsdb_NumRow(m_scsdbhd);
+// 		long long lColNum = scsdb_columnNum(m_scsdbhd);
+// 		long long lAffectNum = scsdb_affected_rows(m_scsdbhd);
+// 		//打印属性列表
+// 		// 		for (int colidx = 0; colidx < lColNum; colidx++)
+// 		// 		{
+// 		// 			printf("  %s\t",scsdb_getcolumn(m_scsdbhd,colidx));
+// 		// 		}
+// 		// 		printf("\n");
+// 		// 
+// 		//打印查询结果
+// 		for (long long rowidx = 0; rowidx < lolRowNum; rowidx++)
+// 		{
+// 			scsdb_ReadRow(m_scsdbhd);
+// 			// 			printf("[%d] ",rowidx + 1);
+// // 			for(int colidx = 0; colidx < lColNum; colidx++)
+// // 			{
+// // 				printf("%s ",scsdb_Files(m_scsdbhd,colidx));
+// // 			}
+// 			vecDB.push_back(scsdb_Files(m_scsdbhd,0));
+// 
+// 
+// // 			printf("\n");
+// 		}
+// 
+// // 		printf("affect rows = %ld\n",lAffectNum);
+// 		scsdb_release(m_scsdbhd);
+// 	}
+	return ERROR_NO_ERROR;
 }
 
 int CDatabaseInfo::GetTables(const CString &strDB, vector<CString> &vecTbl)
 {
 	//
-	vecTbl.clear();
-
-	CString strSql1;
-	strSql1.Format("use %s",strDB);
-
-	CString strSql2 = "show tables";
-
-	int ret;
-	ret = ExecuteSql(strSql1);
-	if (ret != ERROR_NO_ERROR)
-	{
-		return ret;
-	}
-	ret = ExecuteSql(strSql2);
-	if (ret == ERROR_NO_ERROR)
-	{
-		long long lolRowNum = scsdb_NumRow(m_scsdbhd);
-		long long lColNum = scsdb_columnNum(m_scsdbhd);
-		long long lAffectNum = scsdb_affected_rows(m_scsdbhd);
-		//打印属性列表
-		// 		for (int colidx = 0; colidx < lColNum; colidx++)
-		// 		{
-		// 			printf("  %s\t",scsdb_getcolumn(m_scsdbhd,colidx));
-		// 		}
-		// 		printf("\n");
-		// 
-		//打印查询结果
-		for (long long rowidx = 0; rowidx < lolRowNum; rowidx++)
-		{
-			scsdb_ReadRow(m_scsdbhd);
-			// 			printf("[%d] ",rowidx + 1);
-			// 			for(int colidx = 0; colidx < lColNum; colidx++)
-			// 			{
-			// 				printf("%s ",scsdb_Files(m_scsdbhd,colidx));
-			// 			}
-			vecTbl.push_back(scsdb_Files(m_scsdbhd,0));
-
-
-			// 			printf("\n");
-		}
-
-		// 		printf("affect rows = %ld\n",lAffectNum);
-		scsdb_release(m_scsdbhd);
-
-	}
-	return ret;
+// 	vecTbl.clear();
+// 
+// 	CString strSql1;
+// 	strSql1.Format("use %s",strDB);
+// 
+// 	CString strSql2 = "show tables";
+// 
+// 	int ret;
+// 	ret = ExecuteSql(strSql1);
+// 	if (ret != ERROR_NO_ERROR)
+// 	{
+// 		return ret;
+// 	}
+// 	ret = ExecuteSql(strSql2);
+// 	if (ret == ERROR_NO_ERROR)
+// 	{
+// 		long long lolRowNum = scsdb_NumRow(m_scsdbhd);
+// 		long long lColNum = scsdb_columnNum(m_scsdbhd);
+// 		long long lAffectNum = scsdb_affected_rows(m_scsdbhd);
+// 		//打印属性列表
+// 		// 		for (int colidx = 0; colidx < lColNum; colidx++)
+// 		// 		{
+// 		// 			printf("  %s\t",scsdb_getcolumn(m_scsdbhd,colidx));
+// 		// 		}
+// 		// 		printf("\n");
+// 		// 
+// 		//打印查询结果
+// 		for (long long rowidx = 0; rowidx < lolRowNum; rowidx++)
+// 		{
+// 			scsdb_ReadRow(m_scsdbhd);
+// 			// 			printf("[%d] ",rowidx + 1);
+// 			// 			for(int colidx = 0; colidx < lColNum; colidx++)
+// 			// 			{
+// 			// 				printf("%s ",scsdb_Files(m_scsdbhd,colidx));
+// 			// 			}
+// 			vecTbl.push_back(scsdb_Files(m_scsdbhd,0));
+// 
+// 
+// 			// 			printf("\n");
+// 		}
+// 
+// 		// 		printf("affect rows = %ld\n",lAffectNum);
+// 		scsdb_release(m_scsdbhd);
+// 
+// 	}
+// 	return ret;
+	return ERROR_NO_ERROR;
 }
 // 打开数据库连接
 int CDatabaseInfo::OpenScsdb(void)
@@ -146,9 +147,11 @@ int CDatabaseInfo::OpenScsdb(void)
 	return ERROR_NO_ERROR;
 }
 
-// 执行sql语句
-int CDatabaseInfo::ExecuteSql(CString strSql)
+// 执行sql语句int ExecuteSql(CString strSql,vector<vector<CString> > &vecRes);
+int CDatabaseInfo::ExecuteSql(CString strSql,vector<vector<CString> > &vecRes)
 {
+	vecRes.clear();
+
 	if (scsdb_executesql(m_scsdbhd, (LPSTR)(LPCTSTR)strSql))
 	{
 		CString strErr;
@@ -156,5 +159,32 @@ int CDatabaseInfo::ExecuteSql(CString strSql)
 		AfxMessageBox(strErr);
 		return ERROR_EXECUTE_SQL;
 	}
+
+	long long lolRowNum = scsdb_NumRow(m_scsdbhd);
+	long long lColNum = scsdb_columnNum(m_scsdbhd);
+	long long lAffectNum = scsdb_affected_rows(m_scsdbhd);
+	//打印属性列表
+	vector<CString> vecColName;
+
+	for (int colidx = 0; colidx < lColNum; colidx++)
+	{
+		vecColName.push_back(scsdb_getcolumn(m_scsdbhd,colidx));
+	}
+
+	//打印查询结果
+	for (long long rowidx = 0; rowidx < lolRowNum; rowidx++)
+	{
+		scsdb_ReadRow(m_scsdbhd);
+		vector<CString> vecRow;
+
+		for(int colidx = 0; colidx < lColNum; colidx++)
+		{
+			vecRow.push_back(scsdb_Files(m_scsdbhd,colidx));
+		}
+		vecRes.push_back(vecRow);
+	}
+	scsdb_release(m_scsdbhd);
+
+
 	return ERROR_NO_ERROR;
 }

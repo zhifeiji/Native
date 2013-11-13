@@ -90,7 +90,12 @@ int CFormView11::ReFreshTree(const CString &strUser, const CString &strPasswd)
 
 	m_pDBinfo->OpenScsdb();
 
-	m_pDBinfo->GetDatabases(vecDB);
+	CString strSql;
+	strSql.Format("show databases");
+	vector<vector<CString> > vecRes;
+	m_pDBinfo->ExecuteSql(strSql,vecRes);
+
+// 	m_pDBinfo->GetDatabases(vecDB);
 
 	for (vector<CString>::iterator iterDB = vecDB.begin();
 		iterDB != vecDB.end();++iterDB)

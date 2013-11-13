@@ -45,7 +45,7 @@ public:
 	// 打开数据库连接
 	int OpenScsdb(void);
 	// 执行sql语句
-	int ExecuteSql(CString strSql);
+	int ExecuteSql(CString strSql,vector<vector<CString> > &vecRes);
 };
 
 #endif // !defined(AFX_DATABASEINFO_H__21679EB6_5A86_4CC3_9B18_1C175534436F__INCLUDED_)

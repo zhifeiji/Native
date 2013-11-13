@@ -304,6 +304,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\TableDlg.cpp"
+				>
+			</File>
+			<File
 				RelativePath="Test1.cpp"
 				>
 				<FileConfiguration
@@ -418,6 +422,10 @@
 			</File>
 			<File
 				RelativePath="StdAfx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TableDlg.h"
 				>
 			</File>
 			<File
