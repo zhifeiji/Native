@@ -5,4 +5,6 @@
 #include "stdafx.h"
 
 
-
+// 
+// CFormView11 * g_pView11;
+// CFormView11 * g_pView22;

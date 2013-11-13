@@ -4,9 +4,9 @@
 #include "stdafx.h"
 #include "Test1.h"
 
-#include "FormView11.h"
-#include "Test1Doc.h"
-#include "Test1View.h"
+
+// #include "Test1Doc.h"
+// #include "Test1View.h"
 
 
 #include "MainFrm.h"
@@ -122,10 +122,11 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 
     //将CCSplitterWndView连接到0行0列窗格上
     m_splitter.CreateView(0,0,RUNTIME_CLASS(CFormView11),CSize(rect.Width()/6,rect.Height()), pContext); 
-    m_splitter.CreateView(0,1,RUNTIME_CLASS(CTest1View),CSize(rect.Width()*5/6,rect.Height()), pContext); 
+    m_splitter.CreateView(0,1,RUNTIME_CLASS(CFormView22),CSize(rect.Width()*5/6,rect.Height()), pContext); 
 	
-	
-	
+// 	g_pView11 = (CFormView11 *)m_splitter.GetPane(0,0);
+// 	g_pView22 = (CFormView22 *)m_splitter.GetPane(0,1);
+// 	
 	
 	return true;
 //	return CFrameWnd::OnCreateClient(lpcs, pContext);

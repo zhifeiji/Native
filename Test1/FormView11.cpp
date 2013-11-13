@@ -4,8 +4,10 @@
 #include "stdafx.h"
 #include "Test1.h"
 #include "FormView11.h"
+#include "FormView22.h"
+#include "MainFrm.h"
 #include <vector>
-#include "DatabaseInfo.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,6 +26,8 @@ CFormView11::CFormView11()
 	//{{AFX_DATA_INIT(CFormView11)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
+
+// 	m_pDBinfo = new CDatabaseInfo();
 }
 
 CFormView11::~CFormView11()
@@ -43,6 +47,7 @@ BEGIN_MESSAGE_MAP(CFormView11, CFormView)
 	//{{AFX_MSG_MAP(CFormView11)
 	ON_WM_SHOWWINDOW()
 	//}}AFX_MSG_MAP
+	ON_NOTIFY(TVN_SELCHANGED, IDC_TREE1, &CFormView11::OnTvnSelchangedTree1)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -73,24 +78,31 @@ int CFormView11::ReFreshTree(const CString &strUser, const CString &strPasswd)
 	m_tree.MoveWindow(rect);
 	m_tree.ShowWindow(SW_SHOW);
 
+	m_tree.DeleteAllItems();
+
 	HTREEITEM root = m_tree.GetRootItem();
 
 	vector<CString> vecDB;
 	vector<CString> vecTbl;
-	CDatabaseInfo dbinfo;
+// 	CDatabaseInfo dbinfo;
 
-	dbinfo.GetDatabases(vecDB);
+	m_pDBinfo = CDatabaseInfo::GetInstance();
+
+	m_pDBinfo->OpenScsdb();
+
+	m_pDBinfo->GetDatabases(vecDB);
 
 	for (vector<CString>::iterator iterDB = vecDB.begin();
 		iterDB != vecDB.end();++iterDB)
 	{
-			HTREEITEM item = m_tree.InsertItem(*iterDB,root);
+			HTREEITEM itemdatabase = m_tree.InsertItem(*iterDB,root);
+			HTREEITEM itemTbl = m_tree.InsertItem("Table",itemdatabase);
 
-			dbinfo.GetTables(*iterDB,vecTbl);
+			m_pDBinfo->GetTables(*iterDB,vecTbl);
 			for (vector<CString>::iterator iterTbl = vecTbl.begin();
 			iterTbl != vecTbl.end();++iterTbl)
 			{
-				m_tree.InsertItem(*iterTbl,item);
+				m_tree.InsertItem(*iterTbl,itemTbl);
 			}
 	}
 
@@ -114,4 +126,34 @@ void CFormView11::OnDraw(CDC* pDC)
 	// TODO: Add your specialized code here and/or call the base class
 	ReFreshTree("SCS","123456");	
 	
+}
+
+void CFormView11::OnTvnSelchangedTree1(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
+	// TODO: 在此添加控件通知处理程序代码
+
+	HTREEITEM sel=m_tree.GetSelectedItem();
+	CString strSelect=m_tree.GetItemText(sel);
+	//short height = m_tree.getitem;
+	HTREEITEM parent = m_tree.GetParentItem(sel);
+	if (parent && strSelect == "Table")
+	{
+		CMainFrame * pMainFrm = (CMainFrame *)AfxGetMainWnd();
+		CFormView22 *Hdview2 = (CFormView22 *)pMainFrm->m_splitter.GetPane(0,1);;
+		Hdview2->m_list.DeleteAllItems();
+		
+		CString strDB = m_tree.GetItemText(parent);
+		vector<CString> vecTbl;
+		m_pDBinfo->GetTables(strDB,vecTbl);
+
+		for (int n = 0;n < vecTbl.size();++n)
+		{
+			Hdview2->m_list.InsertItem(n,vecTbl[n],IDR_MAINFRAME);
+		}
+	}
+
+
+
+	*pResult = 0;
 }

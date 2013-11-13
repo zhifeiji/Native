@@ -6,7 +6,7 @@
 #endif // _MSC_VER > 1000
 // FormView11.h : header file
 //
-
+#include "DatabaseInfo.h"
 /////////////////////////////////////////////////////////////////////////////
 // CFormView11 form view
 
@@ -30,6 +30,7 @@ public:
 // Attributes
 public:
 // 	CTreeCtrl m_tree;
+	CDatabaseInfo *m_pDBinfo;
 
 // Operations
 public:
@@ -56,6 +57,8 @@ protected:
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnTvnSelchangedTree1(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 /////////////////////////////////////////////////////////////////////////////

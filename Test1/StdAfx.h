@@ -21,7 +21,12 @@
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 #include "ErrorDef.h"
+// #include "FormView11.h"
+// #include "FormView22.h"
 
+// extern CFormView11 * g_pView11;
+// extern CFormView11 * g_pView22;
+// 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 

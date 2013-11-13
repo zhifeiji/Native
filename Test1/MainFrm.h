@@ -5,6 +5,10 @@
 #if !defined(AFX_MAINFRM_H__985E03BC_E62E_47F8_A851_21BCC93FEF70__INCLUDED_)
 #define AFX_MAINFRM_H__985E03BC_E62E_47F8_A851_21BCC93FEF70__INCLUDED_
 
+
+#include "FormView11.h"
+#include "FormView22.h"
+
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
@@ -19,7 +23,8 @@ protected: // create from serialization only
 // Attributes 
 public:
 	CSplitterWnd m_splitter;
-
+// 	CFormView11 * g_pView11;
+// 	CFormView22 * g_pView22;
 // Operations
 public:
 
@@ -43,6 +48,8 @@ public:
 protected:  // control bar embedded members
 	CStatusBar  m_wndStatusBar;
 	CToolBar    m_wndToolBar;
+
+
 
 // Generated message map functions
 protected:

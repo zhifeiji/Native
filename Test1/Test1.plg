@@ -6,28 +6,89 @@
 --------------------Configuration: Test1 - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating command line "rc.exe /l 0x804 /fo"Debug/Test1.res" /d "_DEBUG" /d "_AFXDLL" "E:\PROJECT\Native\Test1\Test1.rc"" 
-Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSP2031.tmp" with contents
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5FC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Test1.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp"
+"D:\My Documents\GitHub\Native\Test1\FormView11.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5FC.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5FD.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Test1.pdb" /debug /machine:I386 /out:"Debug/Test1.exe" /pdbtype:sept 
-.\Debug\MainFrm.obj
-.\Debug\StdAfx.obj
-.\Debug\Test1.obj
-.\Debug\Test1Doc.obj
-.\Debug\Test1View.obj
-.\Debug\Test1.res
-.\Debug\DatabaseInfo.obj
-.\Debug\FormView11.obj
+".\Debug\DatabaseInfo.obj"
+".\Debug\FormView11.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Test1.obj"
+".\Debug\Test1Doc.obj"
+".\Debug\Test1View.obj"
+".\Debug\Test1.res"
 ]
-Creating command line "link.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSP2031.tmp"
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP5FD.tmp"
 <h3>Output Window</h3>
-Compiling resources...
-Linking...
+Compiling...
+DatabaseInfo.cpp
+d:\my documents\github\native\test1\scsdbclient.h(81) : error C2632: 'long' followed by 'long' is illegal
+d:\my documents\github\native\test1\scsdbclient.h(88) : error C2632: 'long' followed by 'long' is illegal
+d:\my documents\github\native\test1\databaseinfo.h(26) : error C2061: syntax error : identifier 'vector'
+d:\my documents\github\native\test1\databaseinfo.h(27) : error C2061: syntax error : identifier 'vector'
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(29) : error C2065: 'vector' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(29) : error C2275: 'CString' : illegal use of this type as an expression
+        d:\program files\vc6.0\vc98\mfc\include\afx.h(368) : see declaration of 'CString'
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(29) : error C2065: 'vecDB' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(30) : error C2448: '<Unknown>' : function-style initializer appears to be a function definition
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(38) : error C2061: syntax error : identifier 'vector'
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(41) : error C2065: 'vecTbl' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(41) : error C2228: left of '.clear' must have class/struct/union type
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(43) : error C2228: left of '.push_back' must have class/struct/union type
+D:\My Documents\GitHub\Native\Test1\DatabaseInfo.cpp(44) : error C2228: left of '.push_back' must have class/struct/union type
+Generating Code...
+Compiling...
+FormView11.cpp
+d:\my documents\github\native\test1\scsdbclient.h(81) : error C2632: 'long' followed by 'long' is illegal
+d:\my documents\github\native\test1\scsdbclient.h(88) : error C2632: 'long' followed by 'long' is illegal
+d:\my documents\github\native\test1\databaseinfo.h(26) : error C2061: syntax error : identifier 'vector'
+d:\my documents\github\native\test1\databaseinfo.h(27) : error C2061: syntax error : identifier 'vector'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(78) : error C2065: 'vector' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(78) : error C2275: 'CString' : illegal use of this type as an expression
+        d:\program files\vc6.0\vc98\mfc\include\afx.h(368) : see declaration of 'CString'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(78) : error C2065: 'vecDB' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(79) : error C2275: 'CString' : illegal use of this type as an expression
+        d:\program files\vc6.0\vc98\mfc\include\afx.h(368) : see declaration of 'CString'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(79) : error C2065: 'vecTbl' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(84) : error C2275: 'CString' : illegal use of this type as an expression
+        d:\program files\vc6.0\vc98\mfc\include\afx.h(368) : see declaration of 'CString'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(84) : error C2039: 'iterator' : is not a member of '`global namespace''
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(84) : error C2065: 'iterator' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(84) : error C2146: syntax error : missing ';' before identifier 'iterDB'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(84) : error C2065: 'iterDB' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(84) : error C2228: left of '.begin' must have class/struct/union type
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(85) : error C2228: left of '.end' must have class/struct/union type
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(85) : error C2143: syntax error : missing ')' before '++'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(85) : error C2059: syntax error : ';'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(85) : error C2059: syntax error : ')'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(86) : error C2143: syntax error : missing ';' before '{'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(87) : error C2100: illegal indirection
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(89) : error C2100: illegal indirection
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(90) : error C2275: 'CString' : illegal use of this type as an expression
+        d:\program files\vc6.0\vc98\mfc\include\afx.h(368) : see declaration of 'CString'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(90) : error C2146: syntax error : missing ';' before identifier 'iterTbl'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(90) : error C2065: 'iterTbl' : undeclared identifier
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(90) : error C2228: left of '.begin' must have class/struct/union type
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(91) : error C2228: left of '.end' must have class/struct/union type
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(91) : error C2143: syntax error : missing ')' before '++'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(91) : error C2059: syntax error : ';'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(91) : error C2059: syntax error : ')'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(92) : error C2143: syntax error : missing ';' before '{'
+D:\My Documents\GitHub\Native\Test1\FormView11.cpp(93) : error C2100: illegal indirection
+Generating Code...
+Error executing cl.exe.
 
 
 
 <h3>Results</h3>
-Test1.exe - 0 error(s), 0 warning(s)
+Test1.exe - 45 error(s), 0 warning(s)
 </pre>
 </body>
 </html>
